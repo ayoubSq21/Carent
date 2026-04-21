@@ -4,8 +4,174 @@
   box-sizing: border-box;
 }
 
+:root {
+  color-scheme: light;
+  --bg-page: #fafafa;
+  --bg-elevated: #ffffff;
+  --bg-muted: #f4f4f4;
+  --border: #f4f4f4;
+  --border-hover: #e5e7eb;
+  --text: #0a0a0a;
+  --text-secondary: #6b7280;
+  --text-tertiary: #9ca3af;
+  --text-subtle: #d1d5db;
+  --text-on-accent: #ffffff;
+  --accent: #0a0a0a;
+  --accent-hover: #111827;
+  --link: #2563eb;
+  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-search: 0 1px 2px rgba(0, 0, 0, 0.04), 0 8px 24px rgba(0, 0, 0, 0.04);
+  --shadow-card-hover: 0 12px 32px rgba(0, 0, 0, 0.06);
+  --image-stage-top: #fafafa;
+  --image-stage-bot: #f4f4f4;
+  --input-bg: #ffffff;
+  --heart-off: #9ca3af;
+  --spec-icon: #6b7280;
+  --badge-popular-bg: #fff7ed;
+  --badge-popular-fg: #c2410c;
+  --badge-new-bg: #f0f9ff;
+  --badge-new-fg: #0369a1;
+  --wishlist-bg: rgba(255, 255, 255, 0.9);
+  --rating-text: #4b5563;
+  --name-text: #111827;
+  --label-text: #374151;
+}
+
+html[data-theme='dark'] {
+  color-scheme: dark;
+  --bg-page: #0a0a0a;
+  --bg-elevated: #141414;
+  --bg-muted: #1f1f1f;
+  --border: #262626;
+  --border-hover: #404040;
+  --text: #fafafa;
+  --text-secondary: #a3a3a3;
+  --text-tertiary: #737373;
+  --text-subtle: #525252;
+  --text-on-accent: #0a0a0a;
+  --accent: #fafafa;
+  --accent-hover: #e5e5e5;
+  --link: #60a5fa;
+  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-search: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px rgba(0, 0, 0, 0.35);
+  --shadow-card-hover: 0 12px 32px rgba(0, 0, 0, 0.45);
+  --image-stage-top: #1a1a1a;
+  --image-stage-bot: #141414;
+  --input-bg: #141414;
+  --heart-off: #737373;
+  --spec-icon: #a3a3a3;
+  --badge-popular-bg: #431407;
+  --badge-popular-fg: #fdba74;
+  --badge-new-bg: #082f49;
+  --badge-new-fg: #7dd3fc;
+  --wishlist-bg: rgba(20, 20, 20, 0.92);
+  --rating-text: #d4d4d4;
+  --name-text: #fafafa;
+  --label-text: #d4d4d4;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 body {
-  font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(to right, #e0d7ff 0%, #ffffff 100%);
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background-color: var(--bg-page);
+  color: var(--text);
   min-height: 100vh;
+}
+
+.layout-shell {
+  display: flex;
+  max-width: 1440px;
+  margin: 0 auto;
+  width: 100%;
+  flex: 1;
+  align-items: stretch;
+  min-height: 0;
+}
+
+.filter-sidebar {
+  width: 280px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 960px) {
+  .layout-shell {
+    flex-direction: column;
+  }
+
+  .filter-sidebar {
+    width: 100%;
+    border-bottom: 1px solid var(--border);
+  }
+}
+
+.car-card {
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.car-card:hover {
+  box-shadow: var(--shadow-card-hover);
+  border-color: var(--border-hover);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .car-card {
+    transition: none;
+  }
+}
+
+.rent-now-btn {
+  transition: background-color 0.15s ease, opacity 0.15s ease;
+}
+
+.rent-now-btn:hover {
+  background-color: var(--accent-hover) !important;
+}
+
+.rent-now-btn:active {
+  opacity: 0.92;
+}
+
+.wishlist-btn {
+  transition: background-color 0.15s ease, transform 0.15s ease;
+}
+
+.wishlist-btn:hover {
+  background-color: var(--bg-elevated) !important;
+  transform: scale(1.03);
+}
+
+.nav-link {
+  position: relative;
+  display: inline-flex;
+  padding-bottom: 6px; /* ensures line can sit 4px below text */
+  color: inherit;
+  text-decoration: none;
+  transition: color 160ms ease;
+}
+
+.nav-link:hover,
+.nav-link:focus-visible {
+  color: var(--text) !important;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 2px; /* line sits ~4px below text baseline */
+  height: 2px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 160ms ease;
+}
+
+.nav-link:hover::after,
+.nav-link:focus-visible::after {
+  transform: scaleX(1);
 }
