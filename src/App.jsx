@@ -99,7 +99,7 @@ function App() {
   }
 
   return (
-    <div style={styles.page}>
+    <div className="app-page" style={styles.page}>
       <Navbar />
 
       <div className="layout-shell">
@@ -123,7 +123,7 @@ function App() {
           hasActiveFilters={hasActiveFilters}
         />
 
-        <main style={styles.main}>
+        <main className="app-main" style={styles.main}>
           <SearchBar
             pickupLocation={pickupLocation}
             setPickupLocation={setPickupLocation}

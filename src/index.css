@@ -175,3 +175,43 @@ body {
 .nav-link:focus-visible::after {
   transform: scaleX(1);
 }
+
+@media (max-width: 960px) {
+  .app-main {
+    padding: 18px 16px 28px !important;
+  }
+
+  .navbar {
+    padding: 14px 16px !important;
+    gap: 14px !important;
+  }
+
+  .navbar-links {
+    order: 3;
+    width: 100%;
+    justify-content: space-between;
+    gap: 18px !important;
+  }
+
+  .navbar-actions {
+    margin-left: auto;
+    gap: 8px !important;
+  }
+
+  .searchbar-inner {
+    min-height: unset !important;
+  }
+
+  .searchbar-divider {
+    display: none;
+  }
+}
+
+@media (max-width: 520px) {
+  .navbar-links {
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 2px;
+  }
+}

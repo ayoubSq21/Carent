@@ -14,11 +14,11 @@ function Navbar() {
 
   return (
     <header style={styles.header}>
-      <nav style={styles.nav} aria-label="Primary">
+      <nav className="navbar" style={styles.nav} aria-label="Primary">
         <a href="#" style={styles.logo}>
           CARENT
         </a>
-        <ul style={styles.links}>
+        <ul className="navbar-links" style={styles.links}>
           <li>
             <a href="#" className="nav-link" style={styles.link}>
               Home
@@ -40,7 +40,7 @@ function Navbar() {
             </a>
           </li>
         </ul>
-        <div style={styles.actions}>
+        <div className="navbar-actions" style={styles.actions}>
           <button
             type="button"
             style={styles.themeToggle}

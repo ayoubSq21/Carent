@@ -18,7 +18,7 @@ function SearchBar({
       }}
       aria-label="Booking search"
     >
-      <div style={styles.inner}>
+      <div className="searchbar-inner" style={styles.inner}>
         <div style={styles.fieldBlock}>
           <span style={styles.fieldLabel}>Pickup location</span>
           <div style={styles.fieldRow}>
@@ -35,7 +35,7 @@ function SearchBar({
           </div>
         </div>
 
-        <div style={styles.divider} aria-hidden />
+        <div className="searchbar-divider" style={styles.divider} aria-hidden />
 
         <div style={styles.fieldBlock}>
           <span style={styles.fieldLabel}>Date range</span>
@@ -69,7 +69,7 @@ function SearchBar({
           </div>
         </div>
 
-        <div style={styles.divider} aria-hidden />
+        <div className="searchbar-divider" style={styles.divider} aria-hidden />
 
         <button type="submit" style={styles.searchBtn} aria-label="Search availability">
           <Search size={20} color="var(--text-on-accent)" strokeWidth={2} />
